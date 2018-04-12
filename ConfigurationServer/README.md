@@ -97,3 +97,6 @@ encrypt:
   key: ABCDEFGHILMNOPQRSTUVZ
 
 ```
+
+POST --> http://localhost:8888/encrypt
+raw: texttoencrypt
