@@ -89,6 +89,10 @@ http://<yourserver>:8080/refresh endpoint.
 ```
 ## Security
 
+```
+To use the encryption and decryption features you need the full-strength JCE installed in your JVM (it is not included by default). You can download the “Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files” from Oracle and follow the installation instructions (essentially, you need to replace the two policy files in the JRE lib/security directory with the ones that you downloaded).
+```
+
 configurationServer/src/main/resources/bootstrap.yml
 
 ```yml
