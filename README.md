@@ -42,3 +42,7 @@ Another challenge is if you do use things like environment variables. That's one
 In some cases, configuration changes could **require a restart**. It could mean that the application instance has to restart to see these new values and be able to use them. Sometimes that may be fine, but in other cases you may not want to have to start rebooting services just to access the latest config values. 
 
 Microservices often are part of organizational change. You have new teams, you have new structures, you you have independents. So if **each team does it their own way** you can have a security and management challenge with your configurations if everybody manages their configs in a unique fashion.
+
+### Spring cloud configuration server
+
+Getting started[https://spring.io/guides/gs/centralized-configuration/]
