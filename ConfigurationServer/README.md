@@ -32,3 +32,27 @@ Microservices often are part of organizational change. You have new teams, you h
 
 <img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs4.PNG" />
 
+configurationServer/src/main/resources/application.yml
+
+```yml
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/KiraDiShira/pluralsight-spring-cloudconfig-wa-tolls
+          #username: for private repo
+          #password: for private repo
+          search-paths: #se non lo specifico mi becca solo application.properties
+            - 'station*'
+            - 'licensigServiceConfig'          
+          repos: ## point to secondary repos
+            perf:
+              pattern:
+                - "*/perf"
+              uri: https://github.com/KiraDiShira/pluralsight-spring-cloudconfig-wa-tolls-perf
+              search-paths:
+                - 'station*'
+```
