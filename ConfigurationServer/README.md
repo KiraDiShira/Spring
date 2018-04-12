@@ -26,9 +26,9 @@ Microservices often are part of organizational change. You have new teams, you h
 
 <img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs1.PNG" />
 
-<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs2PNG" />
+<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs2.PNG" />
 
-<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs3PNG" />
+<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs3.PNG" />
 
-<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs4PNG" />
+<img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs4.PNG" />
 
