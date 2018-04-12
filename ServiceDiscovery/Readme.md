@@ -13,3 +13,7 @@ Any services failing to return a good health check will be removed from the pool
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ServiceDiscovery/Images/sd2.PNG" />
 
 [Getting started](https://spring.io/guides/gs/service-registration-and-discovery/)
+
+ ` ` `
+http://localhost:8761/eureka/apps/ORGANIZATION-SERVICE
+ ` ` `
