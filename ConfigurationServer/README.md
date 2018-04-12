@@ -107,3 +107,37 @@ raw: db6aae326460f63b2205589f5827b13e544afde043351b408de08351c1813b36
 
 spring.datasource.password={cipher}db6aae326460f63b2205589f5827b13e544afde043351b408de08351c1813b36
 ```
+
+lato client: application.yml --> encrypted enable = false
+
+```yml
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/KiraDiShira/pluralsight-spring-cloudconfig-wa-tolls
+          #username: for private repo
+          #password: for private repo
+          search-paths: #se non lo specifico mi becca solo application.properties
+            - 'licensigServiceConfig'              
+          repos: ## point to secondary repos
+            perf:
+              pattern:
+                - "*/perf"
+              uri: https://github.com/KiraDiShira/pluralsight-spring-cloudconfig-wa-tolls-perf
+              search-paths:
+                - 'station*'
+        encrypt:
+          enabled: false
+ ```
+
+lato client: bootstrap.yml
+
+ ```yml
+encrypt:
+  key: ABCDEFGHILMNOPQRSTUVZ
+ ```
+      
