@@ -104,4 +104,6 @@ raw: texttoencrypt
 
 POST --> http://localhost:8888/decrypt
 raw: db6aae326460f63b2205589f5827b13e544afde043351b408de08351c1813b36
+
+spring.datasource.password={cipher}db6aae326460f63b2205589f5827b13e544afde043351b408de08351c1813b36
 ```
