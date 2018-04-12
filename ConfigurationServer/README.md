@@ -72,3 +72,5 @@ spring:
       uri: http://localhost:8888
   
   ```
+
+Spring Boot applications will only read their properties at startup time, so property changes made in the Spring Cloud configuration server won’t be automatically picked up by the Spring Boot application. Spring Boot Actuator does offer a **@RefreshScope** annotation that will allow a development team to access a /refresh endpoint that will force the Spring Boot application to reread its application configuration. The following listing shows the **@RefreshScope** annotation in action.
