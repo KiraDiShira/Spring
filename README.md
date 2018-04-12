@@ -45,4 +45,4 @@ Microservices often are part of organizational change. You have new teams, you h
 
 ### Spring cloud configuration server
 
-Getting started[https://spring.io/guides/gs/centralized-configuration/]
+(Getting started)[https://spring.io/guides/gs/centralized-configuration/]
