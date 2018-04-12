@@ -7,3 +7,5 @@ First, it offers the application team the ability to quickly **horizontally scal
 The second benefit of service discovery is that it helps increase application **resiliency**. When a microservice instance becomes unhealthy or unavailable, most service discovery engines will remove that instance from its internal list of available services.
 
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ServiceDiscovery/Images/sd1.PNG" />
+
+Any services failing to return a good health check will be removed from the pool of available service instances.
