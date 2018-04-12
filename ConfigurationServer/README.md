@@ -56,3 +56,19 @@ spring:
               search-paths:
                 - 'station*'
 ```
+
+client/bootstrap.yml
+
+```yml
+
+spring:
+  application:
+      name: licensingservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:      
+      uri: http://localhost:8888
+  
+  ```
