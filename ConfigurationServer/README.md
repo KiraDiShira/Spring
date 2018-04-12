@@ -1,5 +1,10 @@
 # Configuration server
 
+- [The role of configuration in microservices](#The-role-of-configuration-in-microservices)
+- [Problems with the Status Quo](#problems-with-the-status-quo)
+- [Spring cloud configuration server](#spring-cloud-configuration-server)
+- [Security](#security)
+
 ## The role of configuration in microservices
 
 Well first off you **remove some of the settings from your compiled code**. So get rid of some of these environmentally sensitive settings from your compiled, your deployed code base, connection strings, things, the like, get them out of your code, get them into something that can be externally managed. That's how people often use configurations is trying to make sure their code is portable between environments, and the configurations can change as they target dev, or test, or prod. 
@@ -81,4 +86,14 @@ Items such as your database configuration that are used by Spring Data won’t b
 reloaded by the @RefreshScope annotation. To perform the refresh, you can hit the
 ```
 http://<yourserver>:8080/refresh endpoint.
+```
+## Security
+
+configurationServer/src/main/resources/bootstrap.yml
+
+```yml
+
+encrypt:
+  key: ABCDEFGHILMNOPQRSTUVZ
+
 ```
