@@ -11,3 +11,5 @@ The second benefit of service discovery is that it helps increase application **
 Any services failing to return a good health check will be removed from the pool of available service instances.
 
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ServiceDiscovery/Images/sd2.PNG" />
+
+[Getting started](https://spring.io/guides/gs/service-registration-and-discovery/)
