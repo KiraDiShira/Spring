@@ -45,3 +45,9 @@ https://spring.io/guides/gs/circuit-breaker/
 public class LicensingServiceApplication {
 
 ```
+```java
+	@HystrixCommand
+	private Organization getOrganization(String organizationId) {
+		return organizationRestClient.getOrganization(organizationId);
+	}
+```
