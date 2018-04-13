@@ -78,3 +78,6 @@ https://github.com/Netflix/Hystrix/wiki/Configuration
 	}
 	
 ```
+- 1) Fallbacks are a mechanism to provide a course of action when a resource has timed out or failed. If you find yourself using fallbacks to catch a timeout exception and then doing nothing more than logging the error, then you should probably use a standard try.. catch block around your service invocation, catch the HystrixRuntimeException, and put the logging logic in the try..catch block.
+
+- 2) Be aware of the actions you’re taking with your fallback functions. If you call out to another distributed service in your fallback service you may need to wrap the fallback with a @HystrixCommand annotation. Remember, the same failure that you’re experiencing with your primary course of action might also impact your secondary fallback option. Code defensively. I have been bitten hard when I failed to take this into account when using fallbacks.
