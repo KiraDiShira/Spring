@@ -30,3 +30,11 @@ https://spring.io/guides/gs/circuit-breaker/
 
 ```
 
+```xml
+
+<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+	</dependency>
+
+```
