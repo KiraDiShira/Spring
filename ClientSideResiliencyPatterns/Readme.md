@@ -24,3 +24,9 @@ With the fallback pattern, when a remote service call fails, rather than generat
 ## Bulkheads
 
 By using the bulkhead pattern, you can break the calls to remote resources into their own thread pools and reduce the risk that a problem with one slow remote resource call will take down the entire application. The thread pools act as the bulkheads for your service. Each remote resource is segregated and assigned to the thread pool. If one service is responding slowly, the thread pool for that one type of service call will become saturated and stop processing requests. Service calls to other services won’t become saturated because they’re assigned to other thread pools.
+
+ ```  
+https://spring.io/guides/gs/circuit-breaker/
+
+```
+
