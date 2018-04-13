@@ -83,3 +83,5 @@ https://github.com/Netflix/Hystrix/wiki/Configuration
 - 2) Be aware of the actions you’re taking with your fallback functions. If you call out to another distributed service in your fallback service you may need to wrap the fallback with a @HystrixCommand annotation. Remember, the same failure that you’re experiencing with your primary course of action might also impact your secondary fallback option. Code defensively. I have been bitten hard when I failed to take this into account when using fallbacks.
 
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp2.PNG" />
+
+<img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp3.PNG" />
