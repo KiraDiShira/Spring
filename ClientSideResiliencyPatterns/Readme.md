@@ -8,3 +8,7 @@ Client resiliency software patterns are focused on protecting a remote resourceâ
 * Bulkheads
 
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp1.PNG" />
+
+## Client-side load balancing
+
+Because the client-side load balancer sits between the service client and the service consumer, the load balancer can detect if a service instance is throwing errors or behaving poorly. If the client-side load balancer detects a problem, it can remove that service instance from the pool of available service locations and prevent any future service calls from hitting that service instance. This is exactly the behavior that Netflixâ€™s Ribbon libraries provide out of the box with no extra configuration.
