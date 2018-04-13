@@ -38,3 +38,10 @@ https://spring.io/guides/gs/circuit-breaker/
 </dependency>
 
 ```
+
+```java
+
+@EnableCircuitBreaker
+public class LicensingServiceApplication {
+
+```
