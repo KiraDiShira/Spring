@@ -14,6 +14,72 @@ Any services failing to return a good health check will be removed from the pool
 
 [Getting started](https://spring.io/guides/gs/service-registration-and-discovery/)
 
- ` ` `
+```
 http://localhost:8761/eureka/apps/ORGANIZATION-SERVICE
- ` ` `
+```
+
+License-service will call organization-service with service discovery:
+
+**license-service:**
+
+```xml
+		</dependency>
+			<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+```
+
+```java
+...
+@EnableEurekaClient
+public class LicensingServiceApplication {
+	
+	  @LoadBalanced
+	  @Bean
+	  public RestTemplate getRestTemplate(){
+	      return new RestTemplate();
+	  }
+   
+@Component
+public class OrganizationRestTemplateClient {
+    @Autowired
+    RestTemplate restTemplate;
+
+    public Organization getOrganization(String organizationId){
+        ResponseEntity<Organization> restExchange =
+                restTemplate.exchange(
+                        "http://organization-service/v1/organizations/{organizationId}",
+                        HttpMethod.GET,
+                        null, Organization.class, organizationId);
+
+        return restExchange.getBody();
+    }
+}
+```
+
+**organization-service:**
+
+```xml
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+```
+
+application.yml
+
+```yml
+
+eureka:
+  instance:
+    prefer-ip-address: true
+   
+```
+
+```java
+
+@EnableEurekaClient
+public class OrganizationServiceApplication {
+
+```
