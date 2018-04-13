@@ -85,3 +85,5 @@ https://github.com/Netflix/Hystrix/wiki/Configuration
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp2.PNG" />
 
 <img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp3.PNG" />
+
+<img src="https://github.com/KiraDiShira/Spring/blob/master/ClientSideResiliencyPatterns/Images/csrp4.PNG" />
