@@ -1,0 +1,2 @@
+# Client-side resiliency patterns
+
