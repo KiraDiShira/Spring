@@ -55,3 +55,7 @@ public class LicensingServiceApplication {
 Now, with @HystrixCommand annotation in place, the licensing service will interrupt a call out to its database if the query takes too long. If the database calls take longer than 1,000 milliseconds to execute the Hystrix code wrapping, your service call will throw a com.nextflix.hystrix.exception.HystrixRuntimeException exception.
 
 While using the @HystrixCommand is easy to implement, you do need to be careful about using the default @HystrixCommand annotation with no configuration on the annotation. By default, when you specify a @HystrixCommand annotation without properties, the annotation will place all remote service calls under the same thread pool. This can introduce problems in your application. Later in the chapter when we talk about implementing the bulkhead pattern, we’ll show you how to segregate these remote service calls into their own thread pools and configure the behavior of the thread pools to be independent of one another.
+
+how they can customize the amount of time before a call is interrupted by Hystrix. This is easily accomplished by passing additional parameters into the @HystrixCommand annotation:
+
+https://github.com/Netflix/Hystrix/wiki/Configuration
