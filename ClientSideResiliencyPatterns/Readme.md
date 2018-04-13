@@ -59,3 +59,22 @@ While using the @HystrixCommand is easy to implement, you do need to be careful 
 how they can customize the amount of time before a call is interrupted by Hystrix. This is easily accomplished by passing additional parameters into the @HystrixCommand annotation:
 
 https://github.com/Netflix/Hystrix/wiki/Configuration
+
+```java
+
+@HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
+	public List<License> getLicensesByOrg(String organizationId) {
+		randomlyRunLong();
+
+		return licenseRepository.findByOrganizationId(organizationId);
+	}
+
+	private List<License> buildFallbackLicenseList(String organizationId) {
+		List<License> fallbackList = new ArrayList<>();
+		License license = new License().withId("0000000-00-00000").withOrganizationId(organizationId)
+				.withProductName("Sorry no licensing information currently available");
+		fallbackList.add(license);
+		return fallbackList;
+	}
+	
+```
