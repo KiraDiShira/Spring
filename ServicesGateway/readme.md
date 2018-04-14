@@ -30,6 +30,16 @@ Keep any code you write for your service gateway stateless. Don’t store any in
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 ```
+
+application.yml
+```yml
+server:
+  port: 5555
+eureka:
+  instance:
+    prefer-ip-address: true
+```
+
 ```
 http://localhost:5555/organization-service/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
 ```
