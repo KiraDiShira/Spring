@@ -79,3 +79,18 @@ http://localhost:5555/actuator/routes
 ```
 
 ### Manual mapping of routes using service discovery
+
+application yml
+
+```yml
+zuul:
+  ignored-services: '*'
+  prefix: /api
+  routes:
+    organization-service: /organization/**
+    licensingservice: /licensing/**
+```
+
+```
+http://localhost:5555/api/organization/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
+```
