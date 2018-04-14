@@ -47,6 +47,15 @@ eureka:
 public class ZuulsvrApplication {
 ```
 
+## Configuring routes in Zuul
+
+Zuul at its heart is a reverse proxy. A reverse proxy is an intermediate server that sits between the client trying to reach a resource and the resource itself. The client has no idea it’s even communicating to a server other than a proxy. The reverse proxy takes care of capturing the client’s request and then calls the remote resource on the client’s behalf.
+
+In the case of a microservices architecture, Zuul (your reverse proxy) takes a microservice call from a client and forwards it onto the downstream service. The service client thinks it’s only communicating with Zuul. For Zuul to communicate with the downstream clients, Zuul has to know how to map the incoming call to a downstream route. Zuul has several mechanisms to do this, including
+- Automated mapping of routes via service discovery
+- Manual mapping of routes using service discovery
+- Manual mapping of routes using static URLs
+
 ```
 http://localhost:5555/organization-service/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
 ```
