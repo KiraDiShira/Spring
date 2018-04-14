@@ -40,6 +40,13 @@ eureka:
     prefer-ip-address: true
 ```
 
+```java
+@SpringBootApplication
+@EnableZuulProxy
+@EnableEurekaClient
+public class ZuulsvrApplication {
+```
+
 ```
 http://localhost:5555/organization-service/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
 ```
