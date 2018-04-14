@@ -60,9 +60,22 @@ In the case of a microservices architecture, Zuul (your reverse proxy) takes a m
 - Manual mapping of routes using service discovery
 - Manual mapping of routes using static URLs
 
+### Automated mapping of routes via service discovery
+
 ```
 http://localhost:5555/organization-service/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
 ```
+```yml
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - routes
+```
+
 ```
 http://localhost:5555/actuator/routes
 ```
+
+### Manual mapping of routes using service discovery
