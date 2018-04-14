@@ -21,6 +21,10 @@ Earlier in chapter 4 when I introduced Eureka, I talked about how centralized lo
 Keep any code you write for your service gateway stateless. Don’t store any information in memory for the service gateway. If you aren’t careful, you can limit the scalability of the gateway and have to ensure that the data gets replicated across all service gateway instances. Keep the code you write for your service gateway light. The service gateway is the “chokepoint” for your service invocation. Complex code with multiple database calls can be the source of difficult-to-track-down performance problems in the service gateway.
 
 ```xml
+   <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 	<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
@@ -58,4 +62,7 @@ In the case of a microservices architecture, Zuul (your reverse proxy) takes a m
 
 ```
 http://localhost:5555/organization-service/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
+```
+```
+http://localhost:5555/actuator/routes
 ```
