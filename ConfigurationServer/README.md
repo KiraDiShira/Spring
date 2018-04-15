@@ -37,6 +37,22 @@ Microservices often are part of organizational change. You have new teams, you h
 
 <img  src="https://github.com/KiraDiShira/Spring/blob/master/ConfigurationServer/Images/cs4.PNG" />
 
+```xml
+	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+```
+
+
 configurationServer/src/main/resources/application.yml
 
 ```yml
@@ -65,18 +81,27 @@ spring:
 client/bootstrap.yml
 
 ```yml
-
+encrypt:
+  key: ABCDEFGHILMNOPQRSTUVZ
 spring:
-  application:
-      name: licensingservice
-  profiles:
-    active:
-      default
   cloud:
-    config:      
-      uri: http://localhost:8888
+    config:
+      server:
+        encrypt:
+          enabled: false
+  application:
+    name: configserver
   
   ```
+  
+  ```java
+  
+@SpringBootApplication
+@EnableConfigServer
+@EnableEurekaClient
+public class ConfsvrApplication {
+
+```
 
 Spring Boot applications will only read their properties at startup time, so property changes made in the Spring Cloud configuration server won’t be automatically picked up by the Spring Boot application. Spring Boot Actuator does offer a **@RefreshScope** annotation that will allow a development team to access a /refresh endpoint that will force the Spring Boot application to reread its application configuration. The following listing shows the **@RefreshScope** annotation in action.
 
