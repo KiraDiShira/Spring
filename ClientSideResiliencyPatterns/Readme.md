@@ -102,4 +102,13 @@ Hystrix, by default, will not propagate the parent thread’s context to threads
 
 Fortunately, Hystrix and Spring Cloud offer a mechanism to propagate the parent thread’s context to threads managed by the Hystrix Thread pool. This mechanism is called a HystrixConcurrencyStrategy.
 
+Hystrix allows you to define a custom concurrency strategy that will wrap your Hystrix calls and allows you to inject any additional parent thread context into the threads managed by the Hystrix command. To implement a custom HystrixConcurrencyStrategy you need to carry out three actions:
+
+- 1 Define your custom Hystrix Concurrency Strategy class
+- 2 Define a Java Callable class to inject the UserContext into the HystrixCommand
+- 3 Configure Spring Cloud to use your custom Hystrix Concurrency Strategy
+
+### DEFINE YOUR CUSTOM HYSTRIX CONCURRENCY STRATEGY CLASS
+
+By default, Hystrix only allows you to define one HystrixConcurrencyStrategy for an application. Spring Cloud already defines a concurrency strategy used to handle propagating Spring security information. Fortunately, Spring Cloud allows you to chain together Hystrix concurrency strategies so you can define and use your own concurrency strategy by “plugging” it into the Hystrix concurrency strategy.
 
