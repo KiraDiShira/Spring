@@ -94,3 +94,14 @@ zuul:
 ```
 http://localhost:5555/api/organization/v1/organizations/442adb6e-fa58-47f3-9ca2-ed1fecdfe86c
 ```
+## The real power of Zuul: filters
+
+While being able to proxy all requests through the Zuul gateway does allow you to simplify your service invocations, the real power of Zuul comes into play when you want to write custom logic that will be applied against all the service calls flowing through the gateway. Most often this custom logic is used to enforce a consistent set of application policies like security, logging, and tracking against all the services.
+
+These application policies are considered cross-cutting concerns because you want them to be applied to all the services in your application without having to modify each service to implement them. 
+
+Zuul allows you to build custom logic using a filter within the Zuul gateway. A filter allows you to implement a chain of business logic that each service request passes through as it’s being implemented. Zuul supports three types of filters:
+- **1 Pre-filters** — A pre-filter is invoked before the actual request to the target destination occurs with Zuul. A pre-filter usually carries out the task of making sure that the service has a consistent message format (key HTTP headers are in place, for example) or acts as a gatekeeper to ensure that the user calling the service is authenticated (they are who they say they are) and authorized (they
+can do what they’re requesting to do).
+- **2 Post filters**—A post filter is invoked after the target service has been invoked and a response is being sent back to the client. Usually a post filter will be implemented to log the response back from the target service, handle errors, or audit the response for sensitive information.
+- **3 Route filters**—The route filter is used to intercept the call before the target service is invoked. Usually a route filter is used to determine if some level of dynamic routing needs to take place. For instance, later in the chapter you’ll use a route-level filter that will route between two different versions of the same service so that a small percentage of calls to a service are routed to a new version of a service rather than the existing service. This will allow you to expose a small number of users to new functionality without having everyone use the new service.
