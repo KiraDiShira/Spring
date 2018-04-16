@@ -95,3 +95,11 @@ Note two things about the maxQueueSize attribute. First, if you set the value to
 `(requests per second at peak when the service is healthy * 99th percentile latency in seconds) + small amount of extra threads for overhead`
 
 You often don’t know the performance characteristics of a service until it has been under load. A key indicator that the thread pool properties need to be adjusted is when a service call is timing out even if the targeted remote resource is healthy. 
+
+## ThreadLocal and Hystrix
+
+Hystrix, by default, will not propagate the parent thread’s context to threads managed by a Hystrix command. For example, any values set as ThreadLocal values in the parent thread will not be available by default to a method called by the parent thread and protected by the @HystrixCommand object.
+
+Fortunately, Hystrix and Spring Cloud offer a mechanism to propagate the parent thread’s context to threads managed by the Hystrix Thread pool. This mechanism is called a HystrixConcurrencyStrategy.
+
+
